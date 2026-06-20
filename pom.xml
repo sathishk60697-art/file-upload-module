@@ -106,5 +106,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>file-upload-module</finalName>
     </build>
 </project>
