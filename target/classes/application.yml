@@ -6,9 +6,9 @@ spring:
     name: file-upload-module
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/file_upload_db
-    username: postgres
-    password: Admin                  # ⚠️ Unga pgAdmin real password 'Admin' thana-nu uruthi senjikonga
+    url: jdbc:postgresql://dpg-d8r6u9egvqtc73elaebg-a:5432/file_upload_module
+    username: file_upload_module_user
+    password: 399wdw1HNaTpcLOpjDpbFI2qXJE8mFsh                 # ⚠️ Unga pgAdmin real password 'Admin' thana-nu uruthi senjikonga
     driver-class-name: org.postgresql.Driver
 
   servlet:
