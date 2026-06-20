@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: file-upload-module
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/file_upload_db
+    username: postgres
+    password: Admin                  # ⚠️ Unga pgAdmin real password 'Admin' thana-nu uruthi senjikonga
+    driver-class-name: org.postgresql.Driver
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+aws:
+  s3:
+    # 🛠️ FIXED: Blank-ah irundha keys-ku dummy values pottaachu (Application crash aagathu)
+    bucket-name: my-local-s3-bucket
+    region: us-east-1
+    access-key: MOCKACCESSKEY12345
+    secret-key: mocksecretkey67890fakevalueforlocalrun
+    presigned-url-expiry: 3600  # seconds
+
+file:
+  upload:
+    max-size: 104857600  # 100MB in bytes
+    allowed-types:
+      - image/jpeg
+      - image/png
+      - image/gif
+      - application/pdf
+      - application/msword
+      - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+      - text/plain
+      - application/zip
