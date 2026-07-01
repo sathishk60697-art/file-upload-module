@@ -1,0 +1,57 @@
+server:
+  port: 8080
+
+#spring:
+#  application:
+#    name: file-upload-module
+#  
+#  datasource:
+    # URL-ai kandippa check pannunga. Oruvela local-la run panna "localhost" nu maathunga.
+#    url: jdbc:postgresql://dpg-d8r6u9egvqtc73elaebg-a.oregon-postgres.render.com:5432/file_upload_module
+#    username: file_upload_module_user
+#    password: 399wdw1HNaTpcLOpjDpbFI2qXJE8mFsh
+#    driver-class-name: org.postgresql.Driver
+
+spring:
+  datasource:
+    # Local-la irukkura database-ai connect panna:
+    url: jdbc:postgresql://localhost:5432/file_upload_module
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    # Intha line add pannuna "Dialect" error varathu
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+aws:
+  s3:
+    bucket-name: my-local-s3-bucket
+    region: us-east-1
+    access-key: MOCKACCESSKEY12345
+    secret-key: mocksecretkey67890fakevalueforlocalrun
+    presigned-url-expiry: 3600
+
+file:
+  upload:
+    max-size: 104857600
+    allowed-types:
+      - image/jpeg
+      - image/png
+      - image/gif
+      - application/pdf
+      - application/msword
+      - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+      - text/plain
+      - application/zip
